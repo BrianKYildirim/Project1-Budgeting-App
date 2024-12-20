@@ -16,7 +16,7 @@ def logout():
 def sign_up():
     if request.method == 'POST':
         email = request.form.get('email')
-        username = request.form.get('username')
+        firstname = request.form.get('firstname')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
@@ -32,9 +32,11 @@ def sign_up():
             if not char.isalnum():
                 special = True
 
-        if len(email) < 4:
+        if not email or not firstname or not password1 or not password2:
+            flash('Please fill out all of the fields.', category='Error')
+        elif len(email) < 4:
             flash("Email must be at least 4 characters.", category="Error")
-        elif len(username) < 2:
+        elif len(firstname) < 2:
             flash("First name must be at least 2 characters.", category="Error")
         elif password1 != password2:
             flash("Passwords do not match.", category="Error")
