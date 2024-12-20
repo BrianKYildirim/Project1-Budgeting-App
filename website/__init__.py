@@ -10,7 +10,7 @@ def create_app():
 
     app.config['SECRET_KEY'] = '<KEY>'
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{path.join(app.root_path, DB_NAME)}'
     db.init_app(app)
 
     from .views import views
@@ -21,7 +21,11 @@ def create_app():
 
     from . import models
 
-    with app.app_context():
-        db.create_all()
+    create_database(app)
 
     return app
+
+def create_database(app):
+    if not path.exists('website/' + DB_NAME):
+        with app.app_context():
+            db.create_all()
