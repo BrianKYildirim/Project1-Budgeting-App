@@ -1,0 +1,64 @@
+html {
+    height: 100vh;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Franklin Gothic", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: rgba(5,5,15,0.86);
+    perspective: 1px;
+    transform-style: preserve-3d;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.index-parallax-section {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.index-parallax-section::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("../images/bgimage1.jpg") top center;
+    background-size: cover;
+    transform: translateZ(-1px) scale(2.2);
+    border-bottom: 10px solid black;
+}
+
+.index-title-text1 {
+    top: 23%;
+    left: 50%;
+    position: absolute;
+    font-size: 6.3vw;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
+    transform: scale(1, 1.1) translate(-50%, 10%);
+}
+
+.index-title-text2 {
+    top: 38%;
+    left: 50%;
+    position: absolute;
+    font-size: 2vw;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
+    transform: scale(1, 1.1) translate(-50%, 10%);
+}
+
+.index-title-text3 {
+    top: 42%;
+    left: 50%;
+    position: absolute;
+    font-size: 4vw;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
+    transform: scale(1, 1.1) translate(-50%, 10%);
+}
